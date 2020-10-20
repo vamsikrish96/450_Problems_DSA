@@ -1,0 +1,50 @@
+# Find the maximum and minimum element using minimum number of comparisons
+# Python
+# Using the pair technique:
+# n = number of elements
+# Even number of elements: number of comparisons -> 3*n/2 - 2
+# Odd number of elements: number of comparisons -> 3(n-1)/2
+
+
+count_comparison = 0
+a = [10,14,8,7,6]
+n = len(a)
+max_ele = -1
+min_ele = -1
+if(n %2 == 0):
+    if(a[0] > a[1]):
+        count_comparison += 1
+        max_ele = a[0]
+        min_ele = a[1]
+    else:
+        max_ele = a[1]
+        min_ele = a[0]
+    i = 2
+else:
+    max_ele = a[0]
+    min_ele = a[0]
+    i = 1
+
+
+while(i < n):
+    print("Vamsi")
+    if(a[i+1] > a[i]):
+        count_comparison += 3
+        if(a[i+1] > max_ele):
+            max_ele = a[i+1]
+        if (a[i] < min_ele):
+            min_ele = a[i]
+    else:
+        count_comparison += 3
+        if (a[i] > max_ele):
+
+            max_ele = a[i]
+        if (a[i + 1] < min_ele):
+
+            min_ele = a[i + 1]
+
+    i += 2
+
+print("The maximum andf minimum element are ", max_ele , min_ele)
+print("The count of comparisons are as follows" , count_comparison)
+
