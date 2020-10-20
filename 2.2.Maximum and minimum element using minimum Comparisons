@@ -1,0 +1,47 @@
+#Finding maximum and minimum element in less number of comparisons using tournament method.
+
+#
+
+
+
+
+def Find_min_max(a,low,high):
+    max_ele = -1
+    min_ele = -1
+
+    if(low == high):
+        max_ele_l = a[low]
+        min_ele_l = a[high]
+        return max_ele_l,min_ele_l
+    if(low+1 == high):
+        if(a[low] > a[high]):
+            max_ele_l = a[low]
+            min_ele_l = a[high]
+        else:
+            max_ele_l = a[high]
+            min_ele_l = a[low]
+    mid = (low + high)//2
+    max_ele_l,min_ele_l = Find_min_max(a,low,mid)
+    max_ele_r,min_ele_r = Find_min_max(a,mid+1,high)
+
+    if(max_ele_l > max_ele_r):
+        max_ele = max_ele_l
+    else:
+        max_ele = max_ele_r
+
+    if(min_ele_l < min_ele_r):
+        min_ele = min_ele_l
+    else:
+        min_ele = min_ele_r
+
+    return max_ele,min_ele
+    
+if __name__=="__main__": 
+  a = [20,25,100,12,10]
+  n = len(a)
+
+  low = 0
+  high = n-1
+
+  max_ele, min_ele = Find_min_max(a,low,high)
+  print("The maximum and minimum element is" , max_ele , min_ele)
