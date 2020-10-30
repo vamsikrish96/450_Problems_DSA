@@ -1,0 +1,24 @@
+#Using Dutch National Flag theorem (O(N) , O(1))
+#if(0) - > low = low + 1,mid = mid + 1
+#if(1) - > mid = mid + 1
+#if(2) - > high = high - 1
+
+a = [0,2,1,2]
+low = 0
+mid = 0
+n = len(a)
+high = len(a) - 1
+ele = 0
+while((ele < n) and (mid <= high)):
+    if(a[ele] == 0):
+        a[ele]  ,a[low] = swap(a[ele],a[low])
+        low = low + 1
+        mid = mid + 1
+    elif(a[ele] == 1):
+        mid = mid + 1
+    else:
+        a[ele],a[high] = swap(a[ele],a[high])
+        high = high - 1
+        ele = ele - 1
+    ele = ele + 1
+print(a)
