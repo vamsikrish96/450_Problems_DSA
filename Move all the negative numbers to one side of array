@@ -1,0 +1,16 @@
+#Move all the negative numbers to one side of array (Order doesnt matter)
+# Using partition technique of quick sort and taking pivot as 0
+# Time Complexity  - O(N) ,O(1)
+a = [12,13,-1,-5,6,10,-11]
+low = 0
+high = len(a) - 1
+
+while(low <= high):
+    while(a[low] < 0):
+        low = low + 1
+    while(a[high] > 0):
+        high = high - 1
+    if(low<=high):
+        a[low],a[high] = swap(a[low],a[high])
+
+print(a)
