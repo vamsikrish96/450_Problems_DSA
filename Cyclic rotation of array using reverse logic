@@ -1,0 +1,45 @@
+// Rotation of the array k times to the right using reverse logic.
+// The three functions of reversing the array:
+// n = length of the array
+// 1. reverse(0,n-k-1)
+// 2. reverse(n-k,n-1)
+// 3. reverse(0,n-1)
+////////////////
+// Rotation of the array k times to the left using reverse logic.
+// The three functions of reversing the array:
+// n = length of the array
+// 1. reverse(0,k-1)
+// 2. reverse(k,n-1)
+// 3. reverse(0,n-1)
+
+
+class Solution {
+    public void rotate(int[] a, int k) {
+        
+        int n = a.length;
+        
+        int rem = k%n;
+        if(rem > 0)
+        {
+            reverse_ele(a,0,n-rem-1);
+            reverse_ele(a,n - rem,n-1);
+            reverse_ele(a,0,n-1);
+
+        }
+        
+        
+        
+    }
+    
+public static void reverse_ele(int[] a,int low,int high)
+{
+    while(low <= high)
+    {
+        int temp = a[low];
+        a[low] = a[high];
+        a[high] = temp;
+        low++;
+        high--;
+    }
+}
+}
